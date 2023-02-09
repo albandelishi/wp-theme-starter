@@ -14,6 +14,10 @@ add_action('wp_enqueue_scripts', 'my_css');
 function my_js()
 {
     wp_enqueue_script(
+        'bootstrap',
+        get_template_directory_uri() . '/static/js/bootstrap.bundle.min.js'
+    );
+    wp_enqueue_script(
         'main',
         get_template_directory_uri() . '/static/js/main.js'
     );
