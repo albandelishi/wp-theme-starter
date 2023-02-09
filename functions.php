@@ -1,32 +1,21 @@
 <?php
 
 // Import global CSS files
-function my_css()
+function theme_css()
 {
-    wp_enqueue_style(
-        'bootstrap.min',
-        get_template_directory_uri() . '/static/css/bootstrap.min.css',
-    );
-    wp_enqueue_style(
-        'main',
-        get_template_directory_uri() . '/static/css/main.css',
-    );
+    wp_enqueue_style('bootstrap',          get_template_directory_uri() . '/assets/styles/bootstrap.min.css');
+    wp_enqueue_style('main',          get_template_directory_uri() . '/assets/styles/main.css');
+    wp_enqueue_style('preloader',          get_template_directory_uri() . '/assets/styles/preloader.css');
 }
-add_action('wp_enqueue_scripts', 'my_css');
+add_action('wp_enqueue_scripts', 'theme_css');
 
 // Import global JS files
-function my_js()
+function theme_js()
 {
-    wp_enqueue_script(
-        'bootstrap',
-        get_template_directory_uri() . '/static/js/bootstrap.bundle.min.js'
-    );
-    wp_enqueue_script(
-        'main',
-        get_template_directory_uri() . '/static/js/main.js'
-    );
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/scripts/bootstrap.bundle.min.js');
+    wp_enqueue_script('main', get_template_directory_uri() . '/assets/scripts/main.js');
 }
-add_action('wp_enqueue_scripts', 'my_js');
+add_action('wp_enqueue_scripts', 'theme_js');
 
 // Add Favicon
 function add_favicon()
@@ -76,32 +65,32 @@ function pagination_posts($post_type_query)
 }
 
 // Returns custom post date
-function get_custom_post_date()
-{
-    // If post was published today
-    if (get_the_time('Yd') === current_time('Yd')) {
-        return get_the_date('\T\o\d\a\y \a\t H:i', strtotime($recent['post_date']));
-    } else {
-        return get_the_date('d/m/Y \a\t H:i', strtotime($recent['post_date']));
-    }
-}
+// function get_custom_post_date()
+// {
+//     // If post was published today
+//     if (get_the_time('Yd') === current_time('Yd')) {
+//         return get_the_date('\T\o\d\a\y \a\t H:i', strtotime($recent['post_date']));
+//     } else {
+//         return get_the_date('d/m/Y \a\t H:i', strtotime($recent['post_date']));
+//     }
+// }
 
 // If updated, returns custom post update date
-function get_custom_post_modified_time()
-{
-    if (get_custom_post_date() != get_the_time()) {
-        if (get_custom_post_date('Yd') === current_time('Yd')) {
-            if (get_the_time('Yd') === current_time('Yd')) {
-                $data_atualizado = get_the_modified_date('\a\t H:i', strtotime($recent['post_date']));
-            } else {
-                $data_atualizado = get_the_modified_date('\t\o\d\a\y \a\t H:i', strtotime($recent['post_date']));
-            }
-        } else {
-            $data_atualizado = get_the_modified_date('d/m/Y \a\t H:i', strtotime($recent['post_date']));
-        }
-        return "• Updated " . $data_atualizado;
-    }
-}
+// function get_custom_post_modified_time()
+// {
+//     if (get_custom_post_date() != get_the_time()) {
+//         if (get_custom_post_date('Yd') === current_time('Yd')) {
+//             if (get_the_time('Yd') === current_time('Yd')) {
+//                 $data_atualizado = get_the_modified_date('\a\t H:i', strtotime($recent['post_date']));
+//             } else {
+//                 $data_atualizado = get_the_modified_date('\t\o\d\a\y \a\t H:i', strtotime($recent['post_date']));
+//             }
+//         } else {
+//             $data_atualizado = get_the_modified_date('d/m/Y \a\t H:i', strtotime($recent['post_date']));
+//         }
+//         return "• Updated " . $data_atualizado;
+//     }
+// }
 
 // Custom Post types
 // require get_template_directory() . '/custom_post_types/post-type-name.php';

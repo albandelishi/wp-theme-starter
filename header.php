@@ -33,9 +33,20 @@
     <?php wp_head(); ?>
 </head>
 
-<body>
+<body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <?php include "preloader.php"; ?>
 
-    <header id="mainHeader">
-        <!-- Navbar -->
-        <?php get_template_part('templates/navs/navbar'); ?>
-    </header>
+        <header class="mb-auto" id="mainHeader">
+            <div>
+                <h3 class="float-md-start mb-0">Cover</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </nav>
+            </div>
+            <!-- Navbar -->
+            <?php //get_template_part('templates/navs/navbar');
+            ?>
+        </header>

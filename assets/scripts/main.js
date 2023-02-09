@@ -7,9 +7,19 @@ window.onload = () => {
 
   // scroll to top element
   const scrollToTopEL = document.getElementById("gotoTop");
+
+  //event listener scroll to top
+  scrollToTopEL.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 };
 
 window.onscroll = () => {
+  // scroll to top element
+  const scrollToTopEL = document.getElementById("gotoTop");
   //handle scroll to top el on scroll
   let timer = null;
 
@@ -27,11 +37,3 @@ window.onscroll = () => {
     scrollToTopEL.style.display = "none";
   }, 5000);
 };
-
-//event listener scroll to top
-scrollToTopEL.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
