@@ -4,6 +4,10 @@
 function my_css()
 {
     wp_enqueue_style(
+        'bootstrap.min',
+        get_template_directory_uri() . '/static/css/bootstrap.min.css',
+    );
+    wp_enqueue_style(
         'main',
         get_template_directory_uri() . '/static/css/main.css',
     );
